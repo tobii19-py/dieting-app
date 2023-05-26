@@ -34,7 +34,7 @@ class Temperature:
         """Extracts a value as instructed by the yml file and returns a dictionary"""
 
         url = self._build_url()
-        extractor = Extractor.from_yaml_file('temperature.yaml')
+        extractor = Extractor.from_yaml_file(self.yml_path)
         r = requests.get(url, headers=self.headers)
         full_content = r.text
         raw_content = extractor.extract(full_content)
